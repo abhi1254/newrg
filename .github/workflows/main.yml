@@ -29,7 +29,7 @@ jobs:
         uses: ahmedig/terraform-azurerm-backend@v4
         with:
             azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-            resource_group_name: backenerg
+            resource_group_name: backendrg
             container_name: backendcontainer
             storage_account_name: backendstrge
 
