@@ -1,0 +1,33 @@
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: self-hosted
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.7.5  # change to your version
+
+      # Step 3: Terraform Init (with backend config if needed)
+      - name: Terraform Init
+        run: terraform init -backend-config="backend.tfvars"
+
+      # Step 4: Terraform Plan
+      - name: Terraform Plan
+        run: terraform plan 
+
+      # Step 5: Terraform Apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
