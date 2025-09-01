@@ -31,7 +31,7 @@ jobs:
             azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
             resource_group_name: backendrg
             container_name: backendcontainer
-            storage_account_name: backendstrge
+            storage_account_name: backendstorge
 
       # Step 4: Terraform Plan
       - name: Terraform Plan
